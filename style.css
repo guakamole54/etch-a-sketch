@@ -2,20 +2,21 @@ body {
     background-color: aqua;
     display: flex;
     justify-content: center;
+    margin-top: 50px;
 }
 
 .mainDiv {
     display: flex;
     flex-wrap: wrap;
-    width: 900px;
-    height: 900px;
+    width: 800px;
+    height: 800px;
+
 
 }
 
 .mainDiv div {
     border: 1px solid white;
     background-color: darkblue;
-    flex: 1 0 auto;
 }
 
 

@@ -6,9 +6,9 @@ clearSketchpad.addEventListener('click', resetSketch);
 resizeSketchpad.addEventListener('click', createSketchPad);
 
 
-function calculatePixelWidth(gridSize, gridWidth = 900) {
+function calculatePixelWidth(gridSize, gridWidth = 800) {
 
-    return pixelWidth = gridWidth / gridSize - (2 * gridSize);
+    return (gridWidth - 2 * gridSize - 2) / gridSize;
 
 }
 
