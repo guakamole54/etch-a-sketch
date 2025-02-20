@@ -1,5 +1,5 @@
 body {
-    background-color: aqua;
+    background-color: #ccecec;
     display: flex;
     justify-content: center;
     margin-top: 50px;
@@ -15,13 +15,13 @@ body {
 }
 
 .mainDiv div {
-    border: 1px solid white;
-    background-color: darkblue;
+    border: 1px solid gray;
+    background-color: white;
 }
 
 
 .mainDiv .colorHover {
-    background-color: white;
+    background-color: black;
 }
 
 button {

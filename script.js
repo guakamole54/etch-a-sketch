@@ -3,7 +3,14 @@ const clearSketchpad = document.querySelector('#clear');
 const resizeSketchpad = document.querySelector('#resize');
 clearSketchpad.addEventListener('click', resetSketch);
 
-resizeSketchpad.addEventListener('click', createSketchPad);
+resizeSketchpad.addEventListener('click', () => {
+    let gridSize = 0;
+    do {
+        gridSize = Number.parseInt(prompt("Enter grid size (1-100): "));
+    } while (gridSize > 100 || gridSize < 1);
+
+    createSketchPad(gridSize);
+});
 
 
 function calculatePixelWidth(gridSize, gridWidth = 800) {
@@ -24,7 +31,7 @@ function resetSketch() {
 }
 
 
-function createSketchPad() {
+function createSketchPad(gridSize = 64) {
 
     const grid = document.querySelectorAll('.mainDiv > div');
     if (grid) {
@@ -32,11 +39,6 @@ function createSketchPad() {
             element.remove();
         });
     }
-    let gridSize = 0;
-    do {
-        gridSize = Number.parseInt(prompt("Enter grid size (1-100): "));
-    } while (gridSize > 100 || gridSize < 1);
-
 
     for (let i = 0; i < gridSize; i++) {
 
