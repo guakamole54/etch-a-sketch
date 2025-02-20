@@ -24,7 +24,6 @@ function resetSketch() {
     const divs = mainDiv.querySelectorAll('div');
 
     divs.forEach(element => {
-        element.style['background-color'] = 'white';
         element.classList.remove('colorHover');
 
 
