@@ -21,22 +21,24 @@ function calculatePixelWidth(gridSize, gridWidth = 800) {
 
 function resetSketch() {
 
-    const divs = document.querySelectorAll('.colorHover');
+    const divs = mainDiv.querySelectorAll('div');
 
     divs.forEach(element => {
-
+        element.style['background-color'] = 'white';
         element.classList.remove('colorHover');
+
 
     });
 }
 
 
-function createSketchPad(gridSize = 64) {
+function createSketchPad(gridSize = 64, randomColor = false) {
 
     const grid = document.querySelectorAll('.mainDiv > div');
     if (grid) {
         grid.forEach(element => {
             element.remove();
+
         });
     }
 
@@ -47,13 +49,24 @@ function createSketchPad(gridSize = 64) {
 
             div.style.width = `${calculatePixelWidth(gridSize)}px`;
 
-            div.addEventListener('mouseover', (e) => {
-                e.target.classList.add('colorHover');
-            })
+            if (randomColor) {
+
+                div.addEventListener('mouseover', (e) => {
+                    r = Math.floor(Math.random() * 255);
+                    g = Math.floor(Math.random() * 255);
+                    b = Math.floor(Math.random() * 255);
+                    e.target.style['background-color'] = `rgb(${r},${g},${b})`;
+                })
+            } else {
+
+                div.addEventListener('mouseover', (e) => {
+                    e.target.classList.add('colorHover');
+                })
+            }
 
             mainDiv.appendChild(div);
         }
     }
 }
 
-createSketchPad();
+createSketchPad(gridSize = 16, randomColor = false);
